@@ -6,9 +6,12 @@ pipeline {
          npm_config_cache = 'npm-cache'
      }
      stages {
+        stage("Dependency") {
+          steps {
+               sh "sudo npm install"
+         }
         stage("Build") {
             steps {
-                sh "sudo npm install"
                 sh "sudo npm run build"
             }
         }
